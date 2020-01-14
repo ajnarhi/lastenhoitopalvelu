@@ -1,6 +1,8 @@
 # Lastenhoitopalvelu
 
 
+TESTI
+
 Tarkoituksena on luoda tietokanta Helsinkiin palvelun tarjoajista eli lastenhoitajista ja palvelun tarvitsijoista eli asiakkaista (vanhemmat, päiväkodit). Lastenhoitajat voivat lisätä tiedon ajoista, jolloin he ovat käytettävissä sekä ilmoittaa minkä ikäisiä lapsia ovat valmiita hoitamaan. Lastenhoitajista talletetaan etunimi, ikä, puhelinnumero, kaupunginosa ja lyhyt esittely, jossa he kertovat kokemuksestaan lastenhoidon saralla. Asiakkaista talletetaan puhelinnumero, kaupunginosa, perheen lasten lukumäärä sekä iät ja lyhyt esittely perheestä.
 
 Asiakas voi lisätä itsensä tietokantaan. Lastenhoitaja voi lisätä itsensä tietokantaan. Moelmmat voivat poistaa itsensä tietokannasta.
