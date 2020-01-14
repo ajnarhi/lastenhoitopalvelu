@@ -10,13 +10,21 @@ Asiakas voi katsella vapaana olevia lastenhoitajia ja tehdä varauksen lastenhoi
 
 Toiminnot:
 
- Kirjautuminen
- Lastenhoitajan lisääminen 
- Tietyllä ajalla tarjolla olevan lastenhoitoavun lisääminen
- Lastenhoitajatarpeen lisääminen
- Lastenhoitajatarjonnan katselu ja varauksen teko
- Tarjottujen työkeikkojen katselu ja varauksen teko
- Varauksen peruutus asiakkaan toimesta
- Varauksen peruutus työntekijän toimesta
- Luettelo lastenhoitajista (tietyllä ajalla?)
+- Kirjautuminen
+
+- Lastenhoitajan lisääminen 
+
+- Tietyllä ajalla tarjolla olevan lastenhoitoavun lisääminen
+
+- Lastenhoitajatarpeen lisääminen
+
+- Lastenhoitajatarjonnan katselu ja varauksen teko
+
+- Tarjottujen työkeikkojen katselu ja varauksen teko
+
+- Varauksen peruutus asiakkaan toimesta
+
+- Varauksen peruutus työntekijän toimesta
+
+- Luettelo lastenhoitajista (tietyllä ajalla?)
 
