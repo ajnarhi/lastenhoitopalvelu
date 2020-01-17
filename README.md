@@ -35,5 +35,6 @@ Toiminnot:
 - Luettelo lastenhoitajista (tietyllä ajalla?)
 
 
+##Linkit
 
-[Tietokantakaavio]()
+[Tietokantakaavio](https://github.com/ajnarhi/lastenhoitopalvelu/blob/master/alustava_tietokanta.JPG)
