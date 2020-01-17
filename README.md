@@ -1,13 +1,17 @@
 # Lastenhoitopalvelu
 
 
-TESTI
+Tarkoituksena on luoda tietokanta Helsinkiin palvelun tarjoajista eli lastenhoitajista ja palvelun tarvitsijoista eli asiakkaista. 
 
-Tarkoituksena on luoda tietokanta Helsinkiin palvelun tarjoajista eli lastenhoitajista ja palvelun tarvitsijoista eli asiakkaista (vanhemmat, päiväkodit). Lastenhoitajat voivat lisätä tiedon ajoista, jolloin he ovat käytettävissä sekä ilmoittaa minkä ikäisiä lapsia ovat valmiita hoitamaan. Lastenhoitajista talletetaan etunimi, ikä, puhelinnumero, kaupunginosa ja lyhyt esittely, jossa he kertovat kokemuksestaan lastenhoidon saralla. Asiakkaista talletetaan puhelinnumero, kaupunginosa, perheen lasten lukumäärä sekä iät ja lyhyt esittely perheestä.
+Lastenhoitajista tallennetaan nimi, ikä, puhelinnumero sekä lyhyt esittely. Lastenhoitajalla voi olla useita aikoja, jolloin hän on käytettävissä ja nämä ajat löytyvät omasta tietokantataulustaan. Taulusta löytyy aika, lastenminimi-ikä sekä kohta vapaa, joka merkitään trueksi, jos lastenhoitajaa ei vielä ole varattu sekä falseksi jos hänet on varattu ko. aikana. Lastenhoitaja voi myös liittää lastenhoitotarjoukseen minkä ikäisiä lapsia hän on valmis hoitamaan ja mainita lisätietoja.
 
-Asiakas voi lisätä itsensä tietokantaan. Lastenhoitaja voi lisätä itsensä tietokantaan. Moelmmat voivat poistaa itsensä tietokannasta.
-Asiakas voi katsella vapaana olevia lastenhoitajia ja tehdä varauksen lastenhoitajasta. Kun varaus on vahvistettu, saa asiakas lastenhoitajan puhelinnumeron, jotta hän voi tarvittaessa soittaa lastenhoitajalle. Lastenhoitaja voi katsella tarjolla olevia työkeikkoja ja varata keikan, jolloin lastenhoitaja saa tietoonsa perheen puhelinnumeron. (Asiakkaalle ja lastenhoitajalle lähtee varauksesta tieto.) Molemmat voivat peruuttaa varauksen halutessaan. 
+Asiakkaista talletetaan puhelinnumero, kaupunginosa, perheen lasten lukumäärä ja lyhyt esittely perheestä. Asiakkaaseen voi liittyä useampi lapsi, jotka ovat omassa tietokantataulussaan. Lapsisista tallennetaan etunimi, ikä ja maininta, jos on jotain huomioitavaa (lapsen sairaudet tms. voi mainita tässä).
 
+Asiakas voi lisätä itsensä tietokantaan. Lastenhoitaja voi lisätä itsensä tietokantaan. Molemmat voivat poistaa itsensä tietokannasta.
+
+Asiakas voi katsella vapaana olevia lastenhoitajia tietyllä ajalla ja tehdä varauksen lastenhoitajasta. Kun varaus on vahvistettu, saa asiakas lastenhoitajan puhelinnumeron, jotta hän voi tarvittaessa soittaa lastenhoitajalle.
+
+Lastenhoitaja voi katsella tarjolla olevia työkeikkoja ja varata keikan, jolloin lastenhoitaja saa tietoonsa perheen puhelinnumeron. (Asiakkaalle ja lastenhoitajalle lähtee varauksesta tieto.) Molemmat voivat peruuttaa varauksen halutessaan. 
 
 
 Toiminnot:
