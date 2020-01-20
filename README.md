@@ -37,4 +37,4 @@ Toiminnot:
 
 ## Linkit
 
-[Tietokantakaavio](https://github.com/ajnarhi/lastenhoitopalvelu/blob/master/alustava_tietokanta.JPG)
+[Tietokantakaavio](https://github.com/ajnarhi/lastenhoitopalvelu/blob/master/alustava_tietokanta.jpg)
