@@ -2,8 +2,14 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Lastenhoitopalvelu</title>
+    <title>Nanny service</title>
   </head>
+
+    <body>
+      <ul>
+	<li><a href="{{ url_for('nannies_index') }}">List nannies</a></li>
+	<li><a href="{{ url_for('nannies_form') }}">Add a nanny</a></li>
+      </ul>
 
   <body>
     {% block body %}
