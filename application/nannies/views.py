@@ -1,6 +1,10 @@
-from application import app, db
-from flask import render_template, request
+from flask import redirect, render_template,request,url_for
+from application import app,db
 from application.nannies.models import Nanny
+
+@app.route("/nannies", methods=["GET"])
+def nannies_index():
+    return render_template("nannies/list.html", nannies = Nanny.query.all())
 
 @app.route("/nannies/new/")
 def nannies_form():
@@ -8,10 +12,9 @@ def nannies_form():
 
 @app.route("/nannies/", methods=["POST"])
 def nannies_create():
-    t=Nanny(request.form.get("name"))
+    t = Nanny(request.form.get("name"))
 
     db.session().add(t)
     db.session().commit()
 
-
-    return "hello world!"
+    return redirect(url_for("nannies_index"))

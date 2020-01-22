@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  <table>
+    <tr>
+      <th>Nanny</th>
+    </tr>
+    {% for nanny in nannies %}
+    <tr>
+      <td>{{ nanny.name }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+{% endblock %}
+
