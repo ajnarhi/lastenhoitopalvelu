@@ -13,7 +13,7 @@ Asiakas voi katsella vapaana olevia lastenhoitajia tietyllä ajalla ja tehdä va
 
 Lastenhoitaja voi katsella tarjolla olevia työkeikkoja ja varata keikan.
 
-## Toiminnot:
+## Toiminnot
 
 	Kirjautuminen
 	
