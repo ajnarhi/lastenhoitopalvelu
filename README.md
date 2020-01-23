@@ -35,4 +35,5 @@ Toiminnot:
 
 Linkit
 
-Tietokantakaavio
+[Tietokantakaavio](https://github.com/ajnarhi/lastenhoitopalvelu/blob/master/documentation/alustava_tietokanta.jpg)
+[Heroku](https://tsohalastenhoitopalvelu.herokuapp.com/)
