@@ -13,7 +13,7 @@ Asiakas voi katsella vapaana olevia lastenhoitajia tietyllä ajalla ja tehdä va
 
 Lastenhoitaja voi katsella tarjolla olevia työkeikkoja ja varata keikan.
 
-##Toiminnot:
+## Toiminnot:
 
 	Kirjautuminen
 	
@@ -36,7 +36,7 @@ Lastenhoitaja voi katsella tarjolla olevia työkeikkoja ja varata keikan.
     Luettelo lastenhoitajista (tietyllä ajalla?)
 
 
-##Linkit
+## Linkit
 
 [Tietokantakaavio](https://github.com/ajnarhi/lastenhoitopalvelu/blob/master/documentation/alustava_tietokanta.jpg)
 
