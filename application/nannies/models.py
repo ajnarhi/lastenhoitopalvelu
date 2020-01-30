@@ -7,8 +7,11 @@ class Nanny(db.Model):
     onupdate=db.func.current_timestamp())
 
     name = db.Column(db.String(144), nullable=False)
+    age = db.Column(db.Integer, nullable=False)
+    phonenumber = db.Column(db.Integer, nullable=False)
 
-
-    def __init__(self, name):
+    def __init__(self, name, age, phonenumber):
         self.name = name
+        self.age = age
+        self.phonenumber = phonenumber
 

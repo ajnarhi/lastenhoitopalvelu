@@ -20,6 +20,7 @@ from application import views
 
 from application.nannies import models
 from application.nannies import views
+from application.auth import models 
 
 db.create_all()
 
