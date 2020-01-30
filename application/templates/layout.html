@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -11,7 +12,7 @@
 	Signed in as {{ current_user.name }}. <a href="{{ url_for('auth_logout') }}">Sign out</a>
       </p>
       {% else %}
-      <a href="{{ url_for('auth_login') }}">Kirjaudu</a>
+      <a href="{{ url_for('auth_login') }}">Sign in</a>
       {% endif %}
 
       <ul>
