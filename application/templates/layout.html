@@ -5,13 +5,21 @@
     <title>Nanny service</title>
   </head>
 
-    <body>
+     <body>
+      {% if current_user.is_authenticated %}
+      <p>
+	Signed in as {{ current_user.name }}. <a href="{{ url_for('auth_logout') }}">Sign out</a>
+      </p>
+      {% else %}
+      <a href="{{ url_for('auth_login') }}">Kirjaudu</a>
+      {% endif %}
+
       <ul>
 	<li><a href="{{ url_for('nannies_index') }}">List nannies</a></li>
 	<li><a href="{{ url_for('nannies_form') }}">Add a nanny</a></li>
       </ul>
 
-  <body>
+ 
     {% block body %}
       <p>
         Content.
