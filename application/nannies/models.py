@@ -10,6 +10,9 @@ class Nanny(db.Model):
     age = db.Column(db.Integer, nullable=False)
     phonenumber = db.Column(db.Integer, nullable=False)
 
+    account_id = db.Column(db.Integer, db.ForeignKey('account.id'),
+                           nullable=False)
+
     def __init__(self, name, age, phonenumber):
         self.name = name
         self.age = age
