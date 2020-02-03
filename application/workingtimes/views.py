@@ -11,7 +11,7 @@ def workingtimes_form():
 
 @app.route("/workingtimes/", methods=["POST"])
 def workingtimes_create():
-    w = Workingtimes(datetime.strptime(request.form.get("time"), '%Y-%m-%d').date(), False)
+    w = Workingtimes(datetime.strptime(request.form.get("time"), '%Y-%m-%d').date(), False,1)
 
     db.session().add(w)
     db.session().commit()

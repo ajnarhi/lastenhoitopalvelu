@@ -10,9 +10,10 @@ class Workingtimes(Base):
     nanny_id = db.Column(db.Integer, db.ForeignKey('nanny.id'),
                            nullable=False)
 
-    def __init__(self,time,reserved):
+    def __init__(self,time,reserved,nanny_id):
        self.time =time
        self.reserved = False
+       self.nanny_id=nanny_id
   
     def get_id(self):
         return self.id
