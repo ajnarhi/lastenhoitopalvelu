@@ -1,10 +1,7 @@
 from application import db
+from application.models import Base
 
-class Nanny(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    date_created = db.Column(db.DateTime, default=db.func.current_timestamp())
-    date_modified = db.Column(db.DateTime, default=db.func.current_timestamp(),
-    onupdate=db.func.current_timestamp())
+class Nanny(Base):
 
     name = db.Column(db.String(144), nullable=False)
     age = db.Column(db.Integer, nullable=False)
@@ -12,6 +9,8 @@ class Nanny(db.Model):
 
     account_id = db.Column(db.Integer, db.ForeignKey('account.id'),
                            nullable=False)
+
+    workingtimes = db.relationship("Workingtimes", backref='workingtimes', lazy=True)
 
     def __init__(self, name, age, phonenumber):
         self.name = name

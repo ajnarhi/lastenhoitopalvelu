@@ -27,6 +27,8 @@ from application.nannies import views
 from application.auth import models 
 from application.auth import views
 
+from application.workingtimes import models
+from application.workingtimes import views
 # kirjautuminen
 from application.auth.models import User
 from os import urandom

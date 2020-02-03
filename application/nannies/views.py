@@ -7,7 +7,9 @@ from application.nannies.forms import NannyForm
 
 @app.route("/nannies", methods=["GET"])
 def nannies_index():
-    return render_template("nannies/list.html", nannies = Nanny.query.all())
+    nannies = Nanny.query.all()
+    print (nannies)
+    return render_template("nannies/list.html",nannies=nannies)
 
 @app.route("/nannies/new/")
 @login_required
@@ -22,10 +24,10 @@ def nannies_create():
     if not form.validate():
         return render_template("nannies/new.html", form = form)
 
-    t = Nanny(request.form.get("name"),request.form.get("age"),request.form.get("phonenumber"))
-    t.account_id = current_user.id
+    nanny = Nanny(request.form.get("name"),request.form.get("age"),request.form.get("phonenumber"))
+    nanny.account_id = current_user.id
 
-    db.session().add(t)
+    db.session().add(nanny)
     db.session().commit()
 
     return redirect(url_for("nannies_index"))
