@@ -4,12 +4,20 @@
   <table>
     <tr>
       <th>Nanny</th>
+
     </tr>
     {% for nanny in nannies %}
     <tr>
+<th>Name</th>
       <td>{{ nanny.name }}</td>
+<th>Age</th>
       <td>{{ nanny.age }}</td>
+<th>Phonenumber</th>
       <td>{{ nanny.phonenumber }}</td>
+      <td colspan="2">
+<a href="{{ url_for('workingtimes_list', id=nanny.id) }}">View availability</a>
+      
+      </td>
     </tr>
     {% endfor %}
   </table>

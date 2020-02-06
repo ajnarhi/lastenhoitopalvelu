@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  <table>
+    <tr>
+      <th>Available worktimes. Reserve by clicking the button!</th>
+
+    </tr>
+    {% for workingtimes in workingtimes %}
+    <tr>
+      <td>{{ workingtimes.time }}</td>
+<td>{% if not workingtimes.reserved %}
+    <form method="POST" action="{{ url_for('workingtimes_set_reserved', id=workingtimes.id) }}">
+      <input type="submit" value="Reserve!"/>
+    </form>
+{% endif %}
+      </td>
+
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+{% endblock %}
