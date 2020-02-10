@@ -5,9 +5,9 @@ from application import app,db
 from application.nannies.models import Nanny
 from application.nannies.forms import NannyForm
 
-@app.route("/nannies", methods=["GET"])
-def nannies_index():
-    nannies = Nanny.query.all()
+@app.route("/nannies/<id>", methods=["GET"])
+def nannies_index(id):
+    nannies = Nanny.query.join(Nanny.nannyagency).filter_by(nannyagency_id=id)
     print (nannies)
     return render_template("nannies/list.html",nannies=nannies)
 
@@ -16,7 +16,7 @@ def nannies_index():
 def nannies_form():
     return render_template("nannies/new.html", form=NannyForm())
 
-@app.route("/nannies/", methods=["POST"])
+@app.route("/nannies/", methods=["POST"]) #tähän pitäisi liittää tieto, että nanny menee sen agencyn listoille, joka on kirjautuneena sisään
 @login_required
 def nannies_create():
     form = NannyForm(request.form)
@@ -30,4 +30,4 @@ def nannies_create():
     db.session().add(nanny)
     db.session().commit()
 
-    return redirect(url_for("nannies_index"))
+    return redirect(url_for("nannies_index", id=current_user.id))

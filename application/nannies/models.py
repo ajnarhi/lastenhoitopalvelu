@@ -9,8 +9,7 @@ class Nanny(Base):
     age = db.Column(db.Integer, nullable=False)
     phonenumber = db.Column(db.Integer, nullable=False)
 
-    account_id = db.Column(db.Integer, db.ForeignKey('account.id'),
-                           nullable=False)
+    nannyagency = db.relationship("NannyAgencyNanny", backref='nanny', lazy=True)
 
     workingtimes = db.relationship("Workingtimes", backref='workingtimes', lazy=True)
 

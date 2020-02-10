@@ -11,13 +11,13 @@ def workingtimes_list(id):
     return render_template("workingtimes/listofworkingtimes.html", workingtimes=workingtimes)
 
 
-@app.route("/workingtimes/new/")
-def workingtimes_form():
-    return render_template("workingtimes/new.html", form = WorkingtimesForm())
+@app.route("/workingtimes/new/<id>")
+def workingtimes_form(id):
+    return render_template("workingtimes/new.html", form = WorkingtimesForm(), nanny_id=id)
 
-@app.route("/workingtimes/", methods=["POST"])
-def workingtimes_create():
-    w = Workingtimes(datetime.strptime(request.form.get("time"), '%Y-%m-%d').date(), False,1)
+@app.route("/workingtimes/create/<id>", methods=["POST"])
+def workingtimes_create(id):
+    w = Workingtimes(datetime.strptime(request.form.get("time"), '%Y-%m-%d').date(), False,id)
 
     db.session().add(w)
     db.session().commit()
