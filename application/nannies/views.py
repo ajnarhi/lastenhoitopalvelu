@@ -18,7 +18,7 @@ def nannies_index(id):
 def nannies_form():
     return render_template("nannies/new.html", form=NannyForm())
 
-@app.route("/nannies/addtoagency/<id>", methods=["POST"]) #tähän pitäisi liittää tieto, että nanny menee sen agencyn listoille, joka on kirjautuneena sisään
+@app.route("/nannies/addtoagency/<id>", methods=["POST"]) #dnnndnnfndn
 @login_required(role="ADMIN")
 def nannies_create(id):
     form = NannyForm(request.form)
