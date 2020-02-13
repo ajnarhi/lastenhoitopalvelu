@@ -4,6 +4,7 @@ from datetime import datetime
 from application import app, db
 from application.workingtimes.models import Workingtimes
 from application.workingtimes.forms import WorkingtimesForm
+from flask_login import login_required, current_user
 
 @app.route("/workingtimes/<id>/")
 def workingtimes_list(id):
@@ -22,7 +23,7 @@ def workingtimes_create(id):
     db.session().add(w)
     db.session().commit()
   
-    return "hello world!"
+    return redirect(url_for("nannies_index", id=current_user.id))
 
 @app.route("/workingtimes/reserve/<id>/", methods=["POST"])
 def workingtimes_set_reserved(id):
