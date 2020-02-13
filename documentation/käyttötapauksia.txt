@@ -1,9 +1,13 @@
-Asiakkaana voin selata lastenhoitajia, jotta löydän tarpeilleni sopivimman.
+Välitystoimistona voin tarkastaa ketkä lastenhoitajista voivat työskennellä, jotta voin varata heidät töihin.
 
-Asiakkaana voin varata lastenhoitajan, jotta voin viettää vapaa-aikaa.
+Välitystoimistona voin lisätä toimistooni kuuluvia lastenhoitajia, jotta olisi enemmän työntekijöitä.
 
-Lastenhoitajana voin selata perheitä, jotta löydän sopivimman työpaikan itselleni.
+Välitystoimistona voin poistaa lastenhoitajia, jos he eivät enää voi työskennellä, jotta "haamuhoitajat" eivät jää listoilleni.
 
-Lastenhoitajana voin etsiä itselleni töitä, jotta saisin rahaa.
+Välitystoimistona voin varata lastenhoitajan tiettynä aikana, jotta asiakas saa hoitajan kotiinsa.
+
+
+
+
 
 
