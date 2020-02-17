@@ -18,7 +18,7 @@ def nannies_index(id):
 def nannies_form():
     return render_template("nannies/new.html", form=NannyForm())
 
-@app.route("/nannies/addtoagency/<id>", methods=["POST"]) #dnnndnnfndn
+@app.route("/nannies/addtoagency/<id>", methods=["POST"]) 
 @login_required(role="ADMIN")
 def nannies_create(id):
     form = NannyForm(request.form)
@@ -26,13 +26,30 @@ def nannies_create(id):
     if not form.validate():
         return render_template("nannies/new.html", form = form)
 
-    nanny = Nanny(request.form.get("name"),request.form.get("age"),request.form.get("phonenumber"))
-    #nanny.nannyagency_id = current_user.id
-
-    db.session().add(nanny)
-    db.session.flush()
-    nannyagencynanny=NannyAgencyNanny(current_user.id, nanny.id)
-    db.session().add(nannyagencynanny)
-    db.session().commit()
+    nannynew = Nanny(request.form.get("name"),request.form.get("age"),request.form.get("phonenumber"))
+    nannies=Nanny.query.filter_by(name=request.form.get("name"),age=request.form.get("age"),phonenumber=request.form.get("phonenumber"))
+    if nannies:   
+            return 'hello world!'#redirect(url_for("nanny_alreadyonagency"))
+    
+    else:
+        db.session().add(nannynew)
+        db.session.flush()
+        nannyagencynanny=NannyAgencyNanny(current_user.id, nannynew.id)
+        db.session().add(nannyagencynanny)
+        db.session().commit()
 
     return redirect(url_for("nannies_index", id=current_user.id))
+
+
+#@app.route("/nannies/alreadyonanotheragency/") 
+#@login_required(role="ADMIN")
+  #  return render_template("nannies/alreadyonagency.html")
+
+
+#@app.route("/nannies/addnannywhoisalreadyonanotheragency/") 
+#@login_required(role="ADMIN")
+#tälle voisi antaa edellisessä luodun nannyn niin ei tulisi päällekkäisyyksiä
+
+
+
+
