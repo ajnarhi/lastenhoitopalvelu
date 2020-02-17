@@ -18,7 +18,7 @@
 	<div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('nannies_index', id=current_user.id) }} ">List agencys nannies</a>
+              <a class="nav-link" href="{{ url_for('nannies_index', id=current_user.id or 0) }} ">List agencys nannies</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{{ url_for('nannies_form') }} ">Add a nanny</a>

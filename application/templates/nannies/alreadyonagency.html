@@ -1,11 +1,26 @@
  {% extends "layout.html" %}
 
+
+{% block body %}
  <tr>
   <th>Nanny is already on your agencys list or on another agencys list. Do you still want to add the nanny on your agency?</th>
+  <form method="POST" action="{{ url_for('nannies_createagain', nanny=nannynew, id=current_user.id) }}">
+    
+    <input type='hidden' name='name' value='{{nanny.name}}' />
+    <input type='hidden' name='age' value='{{nanny.age}}' />
+  <input type='hidden' name='phonenumber' value='{{nanny.phonenumber}}' />
+  <tr>
+    <td colspan="2">
+      <input type="submit" value="Yes, add nanny on my agency."/>
+    </td>
+        </tr>
+</form>
+
+<form method="GET" action="{{ url_for('nannies_form') }}">
+<tr>
   <td colspan="2">
-<a href="{{ url_for('workingtimes_list', id=nanny.id) }}"> Yes, add nanny on my agency.</a> ##tämä pitäisi vaihtaa sopivaksi linkiksi
-<a href="{{ url_for('nannies_form()') }}"> No, go back to adding another nanny.</a>      
+    <input type="submit" value="No, go back to adding another nanny."/>
   </td>
-</tr>
-{% endfor %}
-</table>
+      </tr>
+    </form>
+{% endblock %}
