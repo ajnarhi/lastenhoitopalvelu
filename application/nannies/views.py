@@ -27,8 +27,9 @@ def nannies_create(id):
         return render_template("nannies/new.html", form = form)
 
     nannynew = Nanny(request.form.get("name"),request.form.get("age"),request.form.get("phonenumber"))
-    nannies=Nanny.query.filter_by(name=request.form.get("name"),age=request.form.get("age"),phonenumber=request.form.get("phonenumber"))
-    if nannies:   
+    nannies=Nanny.query.filter_by(name=request.form.get("name"),age=request.form.get("age"),phonenumber=request.form.get("phonenumber")).count()
+    print (nannies)
+    if nannies > 0:   
             return render_template("nannies/alreadyonagency.html", nanny=nannynew, id=current_user.id)
     
     else:
@@ -55,7 +56,16 @@ def nannies_createagain(id):
     return redirect(url_for("nannies_index", id=current_user.id))
 
 
-#tälle voisi antaa edellisessä luodun nannyn niin ei tulisi päällekkäisyyksiä
+@app.route("/nannies/delete/<id>", methods=["GET"])
+@login_required
+def nannies_deletefromagency(id):
+    
+    nanny = Nanny.query.get(id)
+    NannyAgencyNanny.query.filter_by(nannyagency_id=current_user.id, nanny_id=nanny.id).delete()
+    #db.session().delete(nannyagencynanny)
+    db.session().commit()
+
+    return redirect(url_for("nannies_index", id=current_user.id))
 
 
 
