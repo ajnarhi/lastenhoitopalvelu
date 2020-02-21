@@ -1,49 +1,49 @@
 # Käyttötapauksia
 
 
-Välitystoimistona voin tarkastella yksittäisen lastenhoitajan työvuoroja.
+### Välitystoimistona voin tarkastella yksittäisen lastenhoitajan työvuoroja.
 
 **SQL-kysely:**
 
-**SELECT time FROM workingtimes WHERE nanny_id=nanny.id;**
+SELECT time FROM workingtimes WHERE nanny_id=nanny.id;
 
 
 
-Välitystoimistona voin lisätä toimistooni kuuluvia lastenhoitajia, jotta olisi enemmän työntekijöitä.
-
-**SQL-kysely:**
-
-**INSERT INTO nanny (name, age, phonenumber) VALUES (?,?,?);**
-
-
-
-Välitystoimistona voin poistaa lastenhoitajia omasta toimistostani, jos he eivät enää voi työskennellä, jotta "haamuhoitajat" eivät jää listoilleni.
+### Välitystoimistona voin lisätä toimistooni kuuluvia lastenhoitajia, jotta olisi enemmän työntekijöitä.
 
 **SQL-kysely:**
 
-**DELETE FROM nannyagencynanny WHERE nannyagency_id=nannyagency.id AND nanny_id=nanny.id** 
+INSERT INTO nanny (name, age, phonenumber) VALUES (?,?,?);
 
 
 
-Välitystoimistona voin varata lastenhoitajan tiettynä aikana, jotta asiakas saa hoitajan kotiinsa.
+### Välitystoimistona voin poistaa lastenhoitajia omasta toimistostani, jos he eivät enää voi työskennellä, jotta "haamuhoitajat" eivät jää listoilleni.
 
 **SQL-kysely:**
 
-**UPDATE workingtimes SET reserved=True WHERE id=?;** 
+DELETE FROM nannyagencynanny WHERE nannyagency_id=nannyagency.id AND nanny_id=nanny.id 
 
 
 
-Välitystoimistona voin tarkastella toimistooni liittyviä tilastotietoja.
+### Välitystoimistona voin varata lastenhoitajan tiettynä aikana, jotta asiakas saa hoitajan kotiinsa.
+
+**SQL-kysely:**
+
+UPDATE workingtimes SET reserved=True WHERE id=?; 
+
+
+
+### Välitystoimistona voin tarkastella toimistooni liittyviä tilastotietoja.
 
 SQL-kysely: tämän sivun tulevat SQL-kyselyt näkyvät koodin seassa ja niiden selitykset myös.
 
 
 
-Välitystoimistona voin päivittää lastenhoitajiini liittyviä tietoja. *Toiminto tulossa*
+### Välitystoimistona voin päivittää lastenhoitajiini liittyviä tietoja. *Toiminto tulossa*
 
 
 
-Välitystoimistona voin tarkastaa ketkä lastenhoitajista voivat työskennellä, jo$
+### Välitystoimistona voin tarkastaa ketkä lastenhoitajista voivat työskennellä, jo$
 
 SQL-kysely: *toiminto tulossa*
 
