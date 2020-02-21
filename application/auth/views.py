@@ -32,3 +32,8 @@ def auth_login():
 def auth_logout():
     logout_user()
     return redirect(url_for("index"))
+
+@app.route("/auth/delete_agency/<id>", methods = ["GET", "POST"])
+def auth_delete_agency(id):
+
+	return redirect(url_for("index"))	

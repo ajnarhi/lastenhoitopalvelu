@@ -28,7 +28,8 @@
             </li>
           </ul>
           <div class="form-inline mt-2 mt-md-0">
-	    {% if current_user.is_authenticated %}
+      {% if current_user.is_authenticated %}
+      <a href="{{ url_for('auth_delete_agency', id=current_user.id) }}">Delete agency {{ current_user.name }}</a>
 	<a href="{{ url_for('auth_logout') }}">Signed in as {{ current_user.name }} -- Sign out</a>
       {% else %}
       <a href="{{ url_for('auth_login') }}">Login or register</a>
