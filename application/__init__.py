@@ -61,6 +61,8 @@ from application.workingtimes import views
 # kirjautuminen
 from application.auth.models import User
 
+from application.statistics import views
+
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(user_id)

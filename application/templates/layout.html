@@ -23,6 +23,9 @@
             <li class="nav-item">
               <a class="nav-link" href="{{ url_for('nannies_form') }} ">Add a nanny</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('statistics_index', id=current_user.id or 0) }} ">Statistics</a>
+            </li>
           </ul>
           <div class="form-inline mt-2 mt-md-0">
 	    {% if current_user.is_authenticated %}

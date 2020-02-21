@@ -62,7 +62,6 @@ def nannies_deletefromagency(id):
     
     nanny = Nanny.query.get(id)
     NannyAgencyNanny.query.filter_by(nannyagency_id=current_user.id, nanny_id=nanny.id).delete()
-    #db.session().delete(nannyagencynanny)
     db.session().commit()
 
     return redirect(url_for("nannies_index", id=current_user.id))
