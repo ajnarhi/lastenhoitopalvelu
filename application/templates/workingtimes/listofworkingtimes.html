@@ -13,6 +13,10 @@
     <form method="POST" action="{{ url_for('workingtimes_set_reserved', id=workingtimes.id) }}">
       <input type="submit" value="Reserve!"/>
     </form>
+    {%else%}
+    <form method="POST" action="{{ url_for('workingtimes_cancel_reservation', id=workingtimes.id) }}">
+      <input type="submit" value="Cancel reservation!"/>
+    </form>
 {% endif %}
       </td>
       <td>

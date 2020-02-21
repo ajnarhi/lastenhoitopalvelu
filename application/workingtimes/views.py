@@ -48,3 +48,14 @@ def workingtimes_delete(id):
     db.session().commit()
 
     return redirect(url_for("workingtimes_list", id=workingtime.nanny_id))
+
+
+@app.route("/workingtimes/cancelreservevation/<id>/", methods=["POST"])
+@login_required(role="ADMIN")
+def workingtimes_cancel_reservation(id):
+
+    w = Workingtimes.query.get(id)
+    w.reserved = False
+    db.session().commit()
+  
+    return redirect(url_for("workingtimes_list", id=w.nanny_id))
