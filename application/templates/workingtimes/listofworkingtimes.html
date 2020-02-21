@@ -15,7 +15,11 @@
     </form>
 {% endif %}
       </td>
-
+      <td>
+      <form method="GET" action="{{ url_for('workingtimes_delete', id=workingtimes.id) }}">
+        <input type="submit" value="Delete!"/>
+      </form>
+            </td>
       </td>
     </tr>
     {% endfor %}

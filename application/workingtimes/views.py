@@ -38,3 +38,13 @@ def workingtimes_set_reserved(id):
   
     return redirect(url_for("workingtimes_list", id=w.nanny_id)) #kun klikataan aika w varatuksi, palataan ajan w omaavan nannyn vapaana oleviin aikoihin
 
+@app.route("/workingtimes/delete/<id>", methods=["GET"])
+@login_required(role="ADMIN")
+def workingtimes_delete(id):
+
+    workingtime = Workingtimes.query.get(id)
+    
+    db.session().delete(workingtime)
+    db.session().commit()
+
+    return redirect(url_for("workingtimes_list", id=workingtime.nanny_id))
