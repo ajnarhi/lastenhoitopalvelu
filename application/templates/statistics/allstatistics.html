@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<p>
+    Here is some information about your agency
+  </p>
+
+{% if has_workingtimes is defined %}
+<p>
+  The following nannies are available for work in all of the agencies:
+</p>
+
+<ul>
+  {% for nanny in has_workingtimes %}
+  <li>
+    {{nanny.name}}
+  </li>
+  {% endfor %}
+</ul>
+
+{% endif %}
+
+
+{% endblock %}

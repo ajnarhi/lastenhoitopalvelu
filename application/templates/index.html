@@ -5,19 +5,10 @@
     Welcome to Nanny service!
   </p>
 
-{% if has_workingtimes is defined %}
+
 <p>
-  The following nannies are available for work:
+  Choose what you want to do from the links above.
 </p>
 
-<ul>
-  {% for nanny in has_workingtimes %}
-  <li>
-    {{nanny.name}}
-  </li>
-  {% endfor %}
-</ul>
-
-{% endif %}
 
 {% endblock %}
