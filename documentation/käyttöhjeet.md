@@ -1,4 +1,4 @@
-#Käyttöohjeet
+# Käyttöohjeet
 
 Sovellukseen voi kirjautua jo olemassaolevana käyttäjänä "Login" -linkin avulla. Jos käyttäjä on uusi käyttäjä, voi hän rekisteröityä "Register" -linkin kautta. Sovellus antaa palautetta siitä, millaisia vaatimuksia käyttäjänimellä ja salasanalla on.
 
