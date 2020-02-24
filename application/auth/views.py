@@ -5,6 +5,8 @@ from application import app, db
 from application.auth.models import User
 from application.auth.forms import LoginForm
 
+from application.auth.models import User
+
 @app.route("/auth/login", methods = ["GET", "POST"])
 def auth_login():
 	if request.method == "GET":
@@ -36,4 +38,11 @@ def auth_logout():
 @app.route("/auth/delete_agency/<id>", methods = ["GET", "POST"])
 def auth_delete_agency(id):
 
+
+	agency=User.query.get(id)
+	db.session().delete(agency)
+	#db.session.flush()
+	db.session().commit()
+
+    
 	return redirect(url_for("index"))	
