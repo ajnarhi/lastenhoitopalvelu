@@ -1,24 +1,42 @@
 {% extends "layout.html" %}
 
 {% block body %}
+<tr>
+  <th>
+    <font size="5" color="black">
+    Nannies in your agency
+  </font>
+</th>
+</tr>
   <table>
     <tr>
-      <th>Nanny</th>
-
+      <th>Name</th>
+      <th>Age</th>
+      <th>Phonenumber</th>
     </tr>
+    
     {% for nanny in nannies %}
     <tr>
-<th>Name</th>
       <td>{{ nanny.name }}</td>
-<th>Age</th>
       <td>{{ nanny.age }}</td>
-<th>Phonenumber</th>
       <td>{{ nanny.phonenumber }}</td>
-      <td colspan="2">
-<a href="{{ url_for('workingtimes_list', id=nanny.id) }}"> View availability</a>
-<a href="{{ url_for('workingtimes_form', id=nanny.id) }}"> Add a new workingtime</a>
-<a href="{{ url_for('nannies_deletefromagency', id=nanny.id) }}"> Delete nanny</a>       
-      </td>
+
+<td>
+  <form method="GET" action="{{ url_for('workingtimes_list', id=nanny.id)}}">
+    <input type="submit" value="View availability"/></li>
+  </form>
+</td>   
+<td>
+  <form method="GET" action="{{ url_for('workingtimes_form', id=nanny.id)}}">
+    <input type="submit" value="Add a new workingtime"/></li>
+  </form>
+</td>  
+<td>
+  <form method="GET" action="{{ url_for('nannies_deletefromagency', id=nanny.id)}}">
+    <input type="submit" value="Delete nanny"/></li>
+  </form>
+</td>     
+
     </tr>
     {% endfor %}
   </table>

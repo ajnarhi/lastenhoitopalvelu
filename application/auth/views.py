@@ -41,7 +41,6 @@ def auth_delete_agency(id):
 
 	agency=User.query.get(id)
 	db.session().delete(agency)
-	#db.session.flush()
 	db.session().commit()
 
     
