@@ -5,6 +5,7 @@ from application import app, db, login_required
 from application.auth.models import User
 from application.auth.forms import LoginForm, AgencyUpdateForm
 
+
 from flask_login import  current_user
 
 from application.auth.models import NannyAgencyNanny
@@ -58,8 +59,18 @@ def agency_update_form(id):
 
 @app.route("/auth/update_agency/<id>", methods = ["GET", "POST"])
 def update_agency(id):
+	form = AgencyUpdateForm(request.form)
 	agency=User.query.get(id)
+	if not form.validate():
+		return render_template("auth/agencyupdate.html", form = form, agency=agency)
+
+	
 	agency.password = request.form.get("password")
 	db.session().commit()
-	logout_user()
-	return redirect(url_for("index"))
+	
+	#return redirect (url_for("index"))
+	return redirect(url_for("update_success"))
+
+@app.route("/auth/update_successful")
+def update_success():	
+	return render_template("auth/passwordchanged.html")

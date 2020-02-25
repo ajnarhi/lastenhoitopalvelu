@@ -76,8 +76,12 @@ def nannies_update_form(id):
 @login_required(role="ADMIN")
 def nannies_update(id):
     form = NannyForm(request.form)
-
     nanny=Nanny.query.get(id)
+    if not form.validate():
+        return render_template("nannies/update.html", form = form, nanny=nanny)
+
+
+    
     nanny.name = request.form.get("name")
     nanny.age= request.form.get("age")
     nanny.phonenumber=request.form.get("phonenumber")
