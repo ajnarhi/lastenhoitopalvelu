@@ -70,7 +70,7 @@ def nannies_deletefromagency(id):
 @login_required(role="ADMIN")
 def nannies_update_form(id):
     nanny=Nanny.query.get(id)
-    return render_template("nannies/update.html", form=NannyForm(), id=nanny.id)
+    return render_template("nannies/update.html", form=NannyForm(), nanny=nanny)
 
 @app.route("/nannies/updatenanny/<id>", methods=["POST"]) 
 @login_required(role="ADMIN")

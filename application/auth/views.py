@@ -1,9 +1,9 @@
 from flask import render_template, request, redirect, url_for
 from flask_login import login_user, logout_user
 
-from application import app, db
+from application import app, db, login_required
 from application.auth.models import User
-from application.auth.forms import LoginForm
+from application.auth.forms import LoginForm, AgencyUpdateForm
 
 from flask_login import  current_user
 
@@ -47,3 +47,19 @@ def auth_delete_agency(id):
 
     
 	return redirect(url_for("index"))	
+
+
+
+@app.route("/auth/update/<id>")
+@login_required(role="ADMIN")
+def agency_update_form(id):
+    agency=User.query.get(id)
+    return render_template("auth/agencyupdate.html", form=AgencyUpdateForm(), agency=agency)
+
+@app.route("/auth/update_agency/<id>", methods = ["GET", "POST"])
+def update_agency(id):
+	agency=User.query.get(id)
+	agency.password = request.form.get("password")
+	db.session().commit()
+	logout_user()
+	return redirect(url_for("index"))

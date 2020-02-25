@@ -31,6 +31,9 @@
             <ul class="navbar-nav mr-auto"></ul>
       {% if current_user.is_authenticated %}
       <li class="nav-item">
+        <a class="nav-link" href="{{ url_for('agency_update_form', id=current_user.id) }}">Update agencys {{ current_user.name }} password</a>
+      </li>
+      <li class="nav-item">
       <a class="nav-link" href="{{ url_for('auth_delete_agency', id=current_user.id) }}">Delete agency {{ current_user.name }}</a>
     </li>
     <li class="nav-item">
