@@ -66,6 +66,27 @@ def nannies_deletefromagency(id):
 
     return redirect(url_for("nannies_index", id=current_user.id))
 
+@app.route("/nannies/update/<id>")
+@login_required(role="ADMIN")
+def nannies_update_form(id):
+    nanny=Nanny.query.get(id)
+    return render_template("nannies/update.html", form=NannyForm(), id=nanny.id)
+
+@app.route("/nannies/updatenanny/<id>", methods=["POST"]) 
+@login_required(role="ADMIN")
+def nannies_update(id):
+    form = NannyForm(request.form)
+
+    nanny=Nanny.query.get(id)
+    nanny.name = request.form.get("name")
+    nanny.age= request.form.get("age")
+    nanny.phonenumber=request.form.get("phonenumber")
+    
+    db.session().commit()
+
+    return redirect(url_for("nannies_index", id=current_user.id))
+
+
 
 
 

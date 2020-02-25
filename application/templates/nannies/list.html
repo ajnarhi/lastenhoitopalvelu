@@ -35,7 +35,12 @@
   <form method="GET" action="{{ url_for('nannies_deletefromagency', id=nanny.id)}}">
     <input type="submit" value="Delete nanny"/></li>
   </form>
-</td>     
+</td>   
+<td>
+  <form method="GET" action="{{ url_for('nannies_update_form', id=nanny.id)}}">
+    <input type="submit" value="Update nanny"/></li>
+  </form>
+</td>   
 
     </tr>
     {% endfor %}
