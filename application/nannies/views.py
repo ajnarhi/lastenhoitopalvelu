@@ -4,12 +4,12 @@ from flask_login import  current_user
 from application import app,db,login_required
 from application.nannies.models import Nanny
 from application.nannies.forms import NannyForm
-from application.auth.models import NannyAgencyNanny
+from application.auth.models import AgencyNanny
 
 @app.route("/nannies/<id>", methods=["GET"])
 @login_required(role="ADMIN")
 def nannies_index(id):
-    nannies = Nanny.query.join(Nanny.nannyagency).filter_by(nannyagency_id=id)
+    nannies = Nanny.query.join(Nanny.agency).filter_by(agency_id=id)
     print (nannies)
     return render_template("nannies/list.html",nannies=nannies)
 
@@ -35,8 +35,8 @@ def nannies_create(id):
     else:
         db.session().add(nannynew)
         db.session.flush()
-        nannyagencynanny=NannyAgencyNanny(current_user.id, nannynew.id)
-        db.session().add(nannyagencynanny)
+        agencynanny=AgencyNanny(current_user.id, nannynew.id)
+        db.session().add(agencynanny)
         db.session().commit()
 
     return redirect(url_for("nannies_index", id=current_user.id))
@@ -49,8 +49,8 @@ def nannies_createagain(id):
 
     db.session().add(nannynew)
     db.session.flush()
-    nannyagencynanny=NannyAgencyNanny(current_user.id, nannynew.id)
-    db.session().add(nannyagencynanny)
+    agencynanny=AgencyNanny(current_user.id, nannynew.id)
+    db.session().add(agencynanny)
     db.session().commit()
 
     return redirect(url_for("nannies_index", id=current_user.id))
@@ -61,7 +61,7 @@ def nannies_createagain(id):
 def nannies_deletefromagency(id):
     
     nanny = Nanny.query.get(id)
-    NannyAgencyNanny.query.filter_by(nannyagency_id=current_user.id, nanny_id=nanny.id).delete()
+    AgencyNanny.query.filter_by(agency_id=current_user.id, nanny_id=nanny.id).delete()
     db.session().commit()
 
     return redirect(url_for("nannies_index", id=current_user.id))

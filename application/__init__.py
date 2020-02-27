@@ -59,13 +59,13 @@ from application.auth import views
 from application.workingtimes import models
 from application.workingtimes import views
 # kirjautuminen
-from application.auth.models import User
+from application.auth.models import Agency
 
 from application.statistics import views
 
 @login_manager.user_loader
 def load_user(user_id):
-    return User.query.get(user_id)
+    return Agency.query.get(user_id)
 
 # luodaan taulut tietokantaan tarvittaessa
 try:

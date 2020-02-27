@@ -1,16 +1,16 @@
 from application import db
 from application.models import Base
 
-class User(Base):
+class Agency(Base):
 
-    __tablename__ = "nannyagency"
+    __tablename__ = "agency"
   
     
     name = db.Column(db.String(144), nullable=False)
     username = db.Column(db.String(144), nullable=False)
     password = db.Column(db.String(144), nullable=False)
 
-    nannies = db.relationship("NannyAgencyNanny", backref='nannyagencynanny', lazy=True)
+    nannies = db.relationship("AgencyNanny", backref='agencynanny', lazy=True)
     
     def __init__(self, name, username, password):
         self.name = name
@@ -33,17 +33,17 @@ class User(Base):
         return ["ADMIN"]
 
 
-class NannyAgencyNanny(Base):
+class AgencyNanny(Base):
 
-    __tablename__ = "nannyagencynanny"
+    __tablename__ = "agencynanny"
 
-    nannyagency_id = db.Column(db.Integer, db.ForeignKey('nannyagency.id'),
+    agency_id = db.Column(db.Integer, db.ForeignKey('agency.id'),
                            nullable=False)
   
     nanny_id = db.Column(db.Integer, db.ForeignKey('nanny.id'),
                            nullable=False)
     
-    def __init__(self, nannyagency_id, nanny_id):
-        self.nannyagency_id = nannyagency_id
+    def __init__(self, agency_id, nanny_id):
+        self.agency_id = agency_id
         self.nanny_id = nanny_id
         

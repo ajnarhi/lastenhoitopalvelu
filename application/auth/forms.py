@@ -9,8 +9,8 @@ class LoginForm(FlaskForm):
         csrf = False
 
 class AgencyUpdateForm(FlaskForm):
-    #passwordOld = StringField("Username",[validators.Length(min=2,max=15, message='Agencys username must be 2-15 characters')])
-    password = PasswordField("Password",[validators.Length(min=2,max=15, message='Password must be 2-15 characters')])
+    
+    password = StringField("New password",[validators.Length(min=2,max=15, message='Password must be 2-15 characters')])
   
     class Meta:
         csrf = False
