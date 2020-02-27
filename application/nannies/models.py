@@ -69,7 +69,22 @@ class Nanny(Base):
 
         return response
 
+    @staticmethod
+    def find_nanny_with_most_reservation_in_agency():
+        stmt = text("SELECT Nanny.id, Nanny.name, count(workingtimes.id) AS workingtimesamount FROM Nanny"
+                    " LEFT JOIN Workingtimes ON workingtimes.nanny_id = nanny.id"
+                    " JOIN AgencyNanny ON agencynanny.nanny_id = nanny.id AND agency_id=:c_user"
+                    " WHERE Workingtimes.reserved"
+                    " GROUP BY Nanny.id" 
+                    " HAVING COUNT(Workingtimes.id) > 0"
+                    " ORDER BY workingtimesamount DESC LIMIT 1").params(c_user=current_user.id)
+        res = db.engine.execute(stmt)
 
+        response = []
+        for row in res:
+            response.append({"id":row[0], "name":row[1], "workingtimeamount":row[2]})
+
+        return response
 
 
         

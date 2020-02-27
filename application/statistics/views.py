@@ -11,6 +11,6 @@ def statistics_index(id):
    
     return render_template("statistics/allstatistics.html",has_workingtimes=Nanny.find_nannies_with_workingtimes(),
      mostfree_workingtimes=Nanny.find_nanny_with_most_workingtimes_in_all_agencys(), 
-     mostfree_workingtimes_agency=Nanny.find_nanny_with_most_workingtimes_in_current_agency())
+     mostfree_workingtimes_agency=Nanny.find_nanny_with_most_workingtimes_in_current_agency(), mostreserved_nanny_agency=Nanny.find_nanny_with_most_reservation_in_agency())
 
 

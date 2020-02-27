@@ -27,6 +27,28 @@
 
 {% endif %}
 
+{% if mostreserved_nanny_agency %}
+<b>
+  The following nanny has most reservations:
+</b>
+<p></p>
+<ul>
+  {% for nanny in mostreserved_nanny_agency %}
+  <li>
+    {{nanny.name}}
+  </li>
+  <p></p>
+  <p>
+    Number of reservations:
+  </p>
+  <li>
+    {{nanny.workingtimeamount}}
+  </li>
+  {% endfor %}
+</ul>
+
+{% endif %}
+
 
 
 <b><font size="+2">Here is some information about ALL of the agencies:</font></b>
