@@ -85,7 +85,7 @@ class Nanny(Base):
             response.append({"id":row[0], "name":row[1], "workingtimeamount":row[2]})
 
         return response
-#TÄMÄ EI TOIMI!
+
     @staticmethod
     def find_nannies_with_workingtimes_in_current_agency():
         stmt = text("SELECT Nanny.id, Nanny.name FROM Nanny"

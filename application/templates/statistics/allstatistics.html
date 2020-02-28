@@ -5,6 +5,38 @@
     Here is some information about your agency</font>
 </b>
 <p></p>
+{% if sum_all_freetimes_agency %}
+<b>
+  Here is how many unreserved workingtimes you have in your agency:
+</b>
+<p></p>
+<ul>
+  {% for workingtimes in sum_all_freetimes_agency %}
+  <li>
+    {{workingtimes.id}}
+  </li>
+  {% endfor %}
+</ul>
+
+{% endif %}
+<p></p>
+
+{% if sum_all_reservedtimes_agency %}
+<b>
+  Here is how many reservations you have in your agency:
+</b>
+<p></p>
+<ul>
+  {% for workingtimes in sum_all_reservedtimes_agency %}
+  <li>
+    {{workingtimes.id}}
+  </li>
+  {% endfor %}
+</ul>
+
+{% endif %}
+<p></p>
+
 {% if mostfree_workingtimes_agency %}
 <b>
   The following nanny has most unreserved workingtimes:
@@ -55,7 +87,7 @@
 </b>
 <p></p>
 <ul>
-  {% for nanny in has_workingtimes %}
+  {% for nanny in has_workingtimes_agency %}
   <li>
     {{nanny.name}}
   </li>

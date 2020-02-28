@@ -1,5 +1,7 @@
 from application import db
 from application.models import Base
+from sqlalchemy.sql import text
+from flask_login import  current_user
 
 class Workingtimes(Base):
 
@@ -26,3 +28,33 @@ class Workingtimes(Base):
 
     def is_authenticated(self):
         return True
+
+
+    @staticmethod
+    def find_all_freetimes_agency():
+        stmt = text("SELECT COUNT(Workingtimes.id) FROM Workingtimes"
+                    " LEFT JOIN Nanny ON workingtimes.nanny_id = nanny.id"
+                    " JOIN AgencyNanny ON agencynanny.nanny_id = nanny.id AND agency_id=:c_user"
+                    " WHERE NOT Workingtimes.reserved").params(c_user=current_user.id)
+        res = db.engine.execute(stmt)
+
+        response = []
+        for row in res:
+            response.append({"id":row[0]})
+
+        return response
+
+
+    @staticmethod
+    def find_all_reserved_agency():
+        stmt = text("SELECT COUNT(Workingtimes.id) FROM Workingtimes"
+                    " LEFT JOIN Nanny ON workingtimes.nanny_id = nanny.id"
+                    " JOIN AgencyNanny ON agencynanny.nanny_id = nanny.id AND agency_id=:c_user"
+                    " WHERE Workingtimes.reserved").params(c_user=current_user.id)
+        res = db.engine.execute(stmt)
+
+        response = []
+        for row in res:
+            response.append({"id":row[0]})
+
+        return response
