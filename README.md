@@ -10,6 +10,10 @@ Lastenhoitajista tallennetaan nimi, ikä sekä puhelinnumero. Lastenhoitajalla v
 
 ## Linkit
 
+[Asennusohjeet] (https://github.com/ajnarhi/lastenhoitopalvelu/blob/master/documentation/asennusohje.md)
+
+[Tietokannan CREATE TABLE- lauseet] (https://github.com/ajnarhi/lastenhoitopalvelu/blob/master/documentation/database.md)
+
 [Tietokantakaavio](https://github.com/ajnarhi/lastenhoitopalvelu/blob/master/documentation/tietokantakaavio_tsoha.jpg)
 
 [Heroku](https://tsohalastenhoitopalvelu.herokuapp.com/) Herokussa voit ensimmäisellä kerralla rekisteröityä ja käyttää myöhemmin luomiasi tunnuksia sisäänkirjautumiseen.
