@@ -10,9 +10,9 @@ Lastenhoitajista tallennetaan nimi, ikä sekä puhelinnumero. Lastenhoitajalla v
 
 ## Linkit
 
-[Asennusohjeet] (https://github.com/ajnarhi/lastenhoitopalvelu/blob/master/documentation/asennusohje.md)
+[Asennusohjeet](https://github.com/ajnarhi/lastenhoitopalvelu/blob/master/documentation/asennusohje.md)
 
-[Tietokannan CREATE TABLE- lauseet] (https://github.com/ajnarhi/lastenhoitopalvelu/blob/master/documentation/database.md)
+[Tietokannan CREATE TABLE- lauseet](https://github.com/ajnarhi/lastenhoitopalvelu/blob/master/documentation/database.md)
 
 [Tietokantakaavio](https://github.com/ajnarhi/lastenhoitopalvelu/blob/master/documentation/tietokantakaavio_tsoha.jpg)
 
