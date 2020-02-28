@@ -97,47 +97,4 @@
 {% endif %}
 
 
-
-<b><font size="+2">Here is some information about ALL of the agencies:</font></b>
-<p></p>
-{% if has_workingtimes is defined %}
-<b>
-  The following nannies have unreserved workingtimes in ALL of the agencies:
-</b>
-<p></p>
-<ul>
-  {% for nanny in has_workingtimes %}
-  <li>
-    {{nanny.name}}
-  </li>
-  {% endfor %}
-</ul>
-
-{% endif %}
-
-
-
-
-{% if mostfree_workingtimes is defined %}
-<b>
-  Nanny with most free workingtimes in ALL of the agencys:
-</b>
-<p></p>
-<ul>
-  {% for nanny in mostfree_workingtimes %}
-  <li>
-    {{nanny.name}}
-  </li>
-  <p></p>
-  <p>
-    Number of unreserved workingtimes:
-  </p>
-
-  <li>
-    {{nanny.workingtimeamount}}
-  </li>
-  {% endfor %}
-</ul>
-{% endif %}
-
 {% endblock %}

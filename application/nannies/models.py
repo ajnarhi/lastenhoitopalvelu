@@ -19,37 +19,6 @@ class Nanny(Base):
         self.age = age
         self.phonenumber = phonenumber
 
-    @staticmethod
-    def find_nannies_with_workingtimes():
-        stmt = text("SELECT Nanny.id, Nanny.name FROM Nanny"
-                    " LEFT JOIN Workingtimes ON workingtimes.nanny_id = nanny.id"
-                    " WHERE NOT Workingtimes.reserved"
-                    " GROUP BY Nanny.id"
-                    " HAVING COUNT(Workingtimes.id) > 0")
-        res = db.engine.execute(stmt)
-
-        response = []
-        for row in res:
-            response.append({"id":row[0], "name":row[1]})
-
-        return response
-
-
-    @staticmethod
-    def find_nanny_with_most_workingtimes_in_all_agencys():
-        stmt = text("SELECT Nanny.id, Nanny.name, count(workingtimes.id) AS workingtimesamount FROM Nanny"
-                    " LEFT JOIN Workingtimes ON workingtimes.nanny_id = nanny.id"
-                    " WHERE NOT Workingtimes.reserved"
-                    " GROUP BY Nanny.id" 
-                    " HAVING COUNT(Workingtimes.id) > 0"
-                    " ORDER BY workingtimesamount DESC LIMIT 1")
-        res = db.engine.execute(stmt)
-
-        response = []
-        for row in res:
-            response.append({"id":row[0], "name":row[1], "workingtimeamount":row[2]})
-
-        return response
 
 
     @staticmethod
