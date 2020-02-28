@@ -21,7 +21,7 @@ INSERT INTO nanny (name, age, phonenumber) VALUES (?,?,?);
 
 **SQL-kysely:**
 
-DELETE FROM nannyagencynanny WHERE nannyagency_id=nannyagency.id AND nanny_id=nanny.id 
+DELETE FROM nannyagencynanny WHERE nannyagency_id=nannyagency.id AND nanny_id=nanny.id; 
 
 
 
@@ -35,17 +35,84 @@ UPDATE workingtimes SET reserved=True WHERE id=?;
 
 ### Välitystoimistona voin tarkastella toimistooni liittyviä tilastotietoja.
 
-SQL-kysely: tämän sivun tulevat SQL-kyselyt näkyvät koodin seassa ja niiden selitykset myös.
+SQL-kyselyt, joista Statistics sivun tiedot ovat seurausta:
+
+
+Toimiston vapaiden aikojen määrä: 
+
+SELECT COUNT(Workingtimes.id) FROM Workingtimes
+LEFT JOIN Nanny ON workingtimes.nanny_id = nanny.id
+JOIN AgencyNanny ON agencynanny.nanny_id = nanny.id AND agency_id=:c_user
+WHERE NOT Workingtimes.reserved;
+
+
+Toimiston varattujen vuorojen määrä:
+
+SELECT COUNT(Workingtimes.id) FROM Workingtimes
+LEFT JOIN Nanny ON workingtimes.nanny_id = nanny.id
+JOIN AgencyNanny ON agencynanny.nanny_id = nanny.id AND agency_id=:c_user
+WHERE Workingtimes.reserved;
+
+
+Lastenhoitaja, jolla eniten vapaita aikoja:
+
+SELECT Nanny.id, Nanny.name, count(workingtimes.id) AS workingtimesamount FROM Nanny
+LEFT JOIN Workingtimes ON workingtimes.nanny_id = nanny.id
+JOIN AgencyNanny ON agencynanny.nanny_id = nanny.id AND agency_id=:c_user
+WHERE NOT Workingtimes.reserved
+GROUP BY Nanny.id
+HAVING COUNT(Workingtimes.id) > 0
+ORDER BY workingtimesamount DESC LIMIT; 
+
+
+Lastenhoitaja, jolla eniten varauksia:
+
+SELECT Nanny.id, Nanny.name, count(workingtimes.id) AS workingtimesamount FROM Nanny
+LEFT JOIN Workingtimes ON workingtimes.nanny_id = nanny.id
+JOIN AgencyNanny ON agencynanny.nanny_id = nanny.id AND agency_id=:c_user
+WHERE Workingtimes.reserved
+GROUP BY Nanny.id
+HAVING COUNT(Workingtimes.id) > 0
+ORDER BY workingtimesamount DESC LIMIT 1;
+
+
+Lastenhoitajat, joilla varattavia aikoja:
+
+SELECT Nanny.id, Nanny.name FROM Nanny
+LEFT JOIN Workingtimes ON workingtimes.nanny_id = nanny.id
+JOIN AgencyNanny ON agencynanny.nanny_id = nanny.id AND agency_id=:c_user
+WHERE NOT Workingtimes.reserved
+GROUP BY Nanny.id
+HAVING COUNT(Workingtimes.id) > 0;
 
 
 
-### Välitystoimistona voin päivittää lastenhoitajiini liittyviä tietoja. *Toiminto tulossa*
+### Välitystoimistona voin päivittää lastenhoitajiini liittyviä tietoja.
+
+**SQL-kysely:**
+
+
+UPDATE nanny SET name=?, age=?, phonenumber=? WHERE Nanny.id=?;
 
 
 
-### Välitystoimistona voin tarkastaa ketkä lastenhoitajista voivat työskennellä, jo$
+### Välitystoimistona voin poistaa toimistoni tietokannasta.
 
-SQL-kysely: *toiminto tulossa*
+**SQL-kysely:**
+
+DELETE FROM agency  WHERE Agency.id=?;
 
 
 
+### Välitystoimistona voin päivittää salasanani.
+
+**SQL-kysely:**
+
+UPDATE agency SET password=? WHERE agency.id=?;
+
+
+### Välitystoimistona voin listata lastenhoiajani.
+
+**SQL-kysely:**
+
+SELECT * FROM Nanny WHERE agency.id=?;
