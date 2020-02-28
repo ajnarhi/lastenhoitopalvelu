@@ -14,4 +14,8 @@ Lastenhoitajista tallennetaan nimi, ikä sekä puhelinnumero. Lastenhoitajalla v
 
 [Heroku](https://tsohalastenhoitopalvelu.herokuapp.com/) Herokussa voit ensimmäisellä kerralla rekisteröityä ja käyttää myöhemmin luomiasi tunnuksia sisäänkirjautumiseen.
 
-[Käyttötapausesimerkkejä](https://github.com/ajnarhi/lastenhoitopalvelu/blob/master/documentation/k%C3%A4ytt%C3%B6tapauksia.txt)
+[Käyttötapausesimerkkejä](https://github.com/ajnarhi/lastenhoitopalvelu/blob/master/documentation/k%C3%A4ytt%C3%B6tapauksia.md)
+
+[Käyttöohjeet] (https://github.com/ajnarhi/lastenhoitopalvelu/blob/master/documentation/k%C3%A4ytt%C3%B6ohjeet.md)
+
+[Jatkokehitysideat] (https://github.com/ajnarhi/lastenhoitopalvelu/blob/master/documentation/jatkokehitysjapuutteet.md)
